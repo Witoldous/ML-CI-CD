@@ -1,17 +1,13 @@
+FROM python:3.10
 
-FROM python:3.9-slim
-
-# katalog roboczy
+# Ustaw katalog roboczy
 WORKDIR /app
 
-# kopiowanie plikow aplikacji
-COPY . .
+# Skopiuj pliki do kontenera
+COPY . /app
 
-# instalowanie zależności 
+# Zainstaluj zależności
 RUN pip install --no-cache-dir -r requirements.txt
 
-# otwieranie portu
-EXPOSE 8080
-
-# start serwera
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+# Domyślna komenda uruchamiająca API
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
