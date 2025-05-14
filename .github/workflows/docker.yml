@@ -24,4 +24,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/witoldous/ml-ci-cd:latest
+        tags: ghcr.io/${{ github.repository }}:latest
+
